@@ -1,0 +1,63 @@
+<h1 style="text-align: center">Login Page</h1>
+
+  <div class="row" >
+    <div class="col-4">
+
+      
+    </div>
+    
+    <div class="col-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+          <div class="form-group">
+            <label for="email" class="form-label mt-4">Email </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="Enter email"
+            />
+            
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label mt-4">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          <div class="form-group">
+            <a href="http://localhost:4401">Admin</a>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-4">
+
+      
+    </div>
+  </div>
+ 
+
+<!-- <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+      
+    <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-hint *ngIf="loginForm.controls.email.errors">Email is required</mat-hint>
+      </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-hint *ngIf="loginForm.controls.password.errors">Password is required</mat-hint>
+      </mat-form-field>
+      <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
+  </div>
+</form> -->

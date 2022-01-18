@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/users"
+      ><img src="./assets/logoo.png" alt="" class="img-responsive logo" />
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" *ngIf="token">
+          <a
+            class="nav-link active"
+            href="#"
+            [routerLink]="['/users']"
+            routerLinkActive="router-link-active"
+            >Users
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a
+            class="nav-link"
+            href="#"
+            [routerLink]="['/countries']"
+            routerLinkActive="router-link-active"
+            >Countries</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a
+            class="nav-link"
+            href="#"
+            [routerLink]="['/destinations']"
+            routerLinkActive="router-link-active"
+            >Destinations</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a
+            class="nav-link"
+            href="#"
+            [routerLink]="['/attendees']"
+            routerLinkActive="router-link-active"
+            >Attendees</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a
+            class="nav-link"
+            href="#"
+            [routerLink]="['/cars']"
+            routerLinkActive="router-link-active"
+            >Cars</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item mr-2 mt-2" *ngIf="!token">
+          <a
+            class="nav-link"
+            href="#"
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item mr-2 mt-2" *ngIf="token">
+          <a
+            class="nav-link"
+            href="#"
+            (click)="logout()"
+            routerLinkActive="router-link-active"
+            >Logout</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" 
+            ><img src="./assets/sdc.jpeg" alt="" class="img-responsive logo"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

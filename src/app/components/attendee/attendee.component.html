@@ -1,0 +1,97 @@
+<div class="container-fluid mb-4">
+  <h1 class="mb-4">Attendees</h1>
+  <div class="row mb-4">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Attendee Name</th>
+            <th scope="col">Attendee Job</th>
+            <th scope="col">Attendee Nationality</th>
+            <th scope="col">Delete</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let attendee of attendees">
+            <td [routerLink]="['/attendees', attendee.attendeeId]" routerLinkActive="router-link-active" style="cursor: pointer;">{{ attendee.attendeeName }}</td>
+            <td>{{ attendee.attendeeJob }}</td>
+            <td>{{ attendee.attendeeNationality }}</td>
+            <td><button type="button" class="btn btn-light" (click)="onDelete(attendee)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Add Attendees">
+      <ng-template ngbPanelContent>
+        <form [formGroup]="attendeeForm" (ngSubmit)="submit()">
+          <fieldset>
+            <div class="form-group">
+              <label for="attendeeName" class="form-label mt-4"
+                >Attendee Email</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="attendeeEmail"
+                placeholder="Attendee Email"
+                formControlName="attendeeEmail"
+              />
+            </div>
+            <div class="form-group">
+              <label for="attendeeName" class="form-label mt-4"
+                >Attendee Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="attendeeName"
+                placeholder="Attendee Name"
+                formControlName="attendeeName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="attendeeJob" class="form-label mt-4"
+                >Attendee Job</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="attendeeJob"
+                placeholder="Attendee Job"
+                formControlName="attendeeJob"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4"
+                >Attendee Nationality</label
+              >
+              <select
+                class="form-select"
+                id="exampleSelect1"
+                formControlName="attendeeNationality"
+              >
+                <option></option>
+                <option *ngFor="let country of countries">
+                  {{ country.country }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button
+                class="btn btn-lg btn-light"
+                type="submit"
+                style="width: 100%"
+              >
+                Add Attendee
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
