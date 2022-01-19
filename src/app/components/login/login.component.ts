@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { AlertifyService } from 'src/app/services/alertify.service';
+import { AttendeeAuthService } from 'src/app/services/attendee-auth.service';
+import { AttendeeLoginModel } from 'src/app/models/attendeeLoginModel';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private attendeeAuth:AttendeeAuthService
   ) {}
 
   ngOnInit(): void {
@@ -40,15 +43,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
+    console.log("aa")
     if (this.loginForm.invalid) {
       return;
     }
     //let loginModel = Object.assign({},this.loginForm.value);
     let email = this.loginForm.controls['email'].value;
     let password = this.loginForm.controls['password'].value;
-    let loginModel: Login = { email: email, password: password };
+    let attendeeLoginModel: AttendeeLoginModel = { email: email, password: password };
 
-    this.authService.login(loginModel).subscribe(
+    this.attendeeAuth.login(attendeeLoginModel).subscribe(
       (response) => {
         console.log(response);
         console.log('girdi');
@@ -57,6 +62,7 @@ export class LoginComponent implements OnInit {
         console.log('girdi3');
       },
       (responseError) => {
+        console.log("aasd");
         console.log(responseError);
         this.alertifyService.errorMessage('Please Check Your Credientials');
       },

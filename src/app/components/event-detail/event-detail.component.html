@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <h3 class="mb-3">Rate The Event</h3>
+
+  <div class="row mt-3">
+    <div class="col-4">
+      <ngb-carousel class="mt-2 mb-2" style="height: 100%; width: 100%">
+        <ng-template ngbSlide *ngFor="let photo of photos">
+          <div class="picsum-img-wrapper">
+            <img
+              [src]="photo.url"
+              alt="Angular Carousel 1"
+              style="height: 100%; width: 100%; cursor: pointer"
+            />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="col-8">
+      <form [formGroup]="feedbackForm" (ngSubmit)="save()">
+        <fieldset>
+          <div class="form-group">
+            <label for="customRange3" class="form-label"
+              >Please Rate The Event
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="5"
+              step="1"
+              id="customRange3"
+              formControlName="eventPoint"
+            />
+          </div>
+          <div class="form-group">
+            <label for="customRange3" class="form-label"
+              >Please Rate The Car
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="5"
+              step="1"
+              id="customRange3"
+              formControlName="carPoint"
+            />
+          </div>
+          <div class="form-group">
+            <label for="customRange3" class="form-label"
+              >Please Rate The Location
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="5"
+              step="1"
+              id="customRange3"
+              formControlName="locationPoint"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="exampleTextarea" class="form-label"
+              >Plese Share Your Feedbacks With Us </label
+            >
+            <textarea
+              class="form-control"
+              id="exampleTextarea"
+              formControlName="comment"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-light">Save</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

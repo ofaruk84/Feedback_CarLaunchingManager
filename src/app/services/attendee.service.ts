@@ -3,6 +3,7 @@ import { HttpClient } from  '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Attendee } from '../models/attendee';
 import { ListResponseModel } from '../models/listResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,14 @@ export class AttendeeService {
     let newPath = this.apiUrl + "delete";
 
     return this.httpClient.post(newPath,attendee);
+  }
+
+  
+  getByid(id:number):Observable<SingleResponseModel<Attendee>>{
+
+
+    //getbyattendeeid?id=1
+    let newUrl = this.apiUrl + "getbyattendeeid?id="+id;
+    return this.httpClient.get<SingleResponseModel<Attendee>>(newUrl);
   }
 }

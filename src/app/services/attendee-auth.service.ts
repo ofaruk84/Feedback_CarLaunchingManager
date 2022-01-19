@@ -4,6 +4,10 @@ import { catchError } from 'rxjs/operators'
 import { Observable, throwError} from 'rxjs';
 
 import { AttendeeRegisterModel } from '../models/attendeeRegisterModel';
+import { AttendeeLoginModel } from '../models/attendeeLoginModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
+import { Token } from '../models/token';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +26,12 @@ export class AttendeeAuthService {
     let newPath = this.apiUrl+"register"
     return this.httpClient.post(newPath,attendee);
   }
+  login(attendee:AttendeeLoginModel){
+
+    let newPath = this.apiUrl+"login"
+    return this.httpClient.post<SingleResponseModel<Token>>(newPath,attendee);
+  }
+
   handleError(error: HttpErrorResponse) {
     return throwError(error);
 }

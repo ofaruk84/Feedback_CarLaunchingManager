@@ -9,29 +9,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {HttpClientModule} from '@angular/common/http';
 import { NaviComponent } from './components/navi/navi.component';
-import { CountryComponent } from './components/country/country.component';
-import { DestinationComponent } from './components/destination/destination.component';
-import { UserComponent } from './components/user/user.component';
-import { AttendeeComponent } from './components/attendee/attendee.component';
+
 import { LoginComponent } from './components/login/login.component';
-import { CarComponent } from './components/car/car.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
+
 
 import {FileUploadModule} from 'ng2-file-upload';
-import { AttendeeDetailComponent } from './components/attendee-detail/attendee-detail.component'
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
+import { PhotofilterbycarPipe } from './pipes/photofilterbycar.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
-    CountryComponent,
-    DestinationComponent,
-    UserComponent,
-    AttendeeComponent,
     LoginComponent,
-    CarComponent,
-    CarDetailComponent,
-    AttendeeDetailComponent,
+    DashboardComponent,
+    EventDetailComponent,
+    PhotofilterbycarPipe,
    
   ],
   imports: [
